@@ -1,0 +1,3 @@
+这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型
+The purpose of this guide is to document all of the paths available to you for interacting and shaping Ansible with code,
+ ranging from developing modules and plugins to helping to develop the Ansible Core Engine via pull requests.

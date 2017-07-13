@@ -1,5 +1,2 @@
-# LearnPy
-Hello Word!
-Hello Word!Hello Word!
-Hello Word!Hello Word!Hello Word!
-Hello Word!Hello Word!Hello Word!Hello Word!
+﻿# LearnPython
+你好世界！
