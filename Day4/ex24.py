@@ -6,7 +6,9 @@ Created on 2017年8月2日
 @author: Ethan Wong
 '''
 #经典类和新式类 的区别
-
+#区别：继承了 找同一方法同一函数 查找方式不一样 深度优先 广度优先
+#新式类修复了经典类的一个bug 经典类在面临多重继承时的问题
+#类是可以多继承的加，号
 #你的类如果 继承自object 为新式类
 #没有object 为经典类
 class Father(object):
@@ -43,3 +45,4 @@ s1 = Son()
 s1.Bar()
 s1.Func()
 s1.Bad()
+
