@@ -33,7 +33,7 @@ def AlexReadlines():
         #自动关闭文件不用再f.close()
         #with file('ex9tt.txt','r') as f:
         f = file('ex9tt.txt','r')
-        #根据字节跳到某一处
+            #根据字节跳到某一处
         f.seek(seek)
         data = f.readline()
         if data:
@@ -45,4 +45,3 @@ def AlexReadlines():
 print AlexReadlines()
 for line1 in AlexReadlines():
     print line1
-

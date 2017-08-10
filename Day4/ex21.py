@@ -5,7 +5,7 @@ Created on 2017年8月2日
 
 @author: Ethan Wong
 '''
-
+#旧式类 特性 即可读也可写
 class test1:
     
     def __init__(self):
@@ -14,7 +14,8 @@ class test1:
     @property
     def Show(self):
         return self.__pravite
-    
+
+#新式类    特性只读 可写需加@方法名.setter
 class test2(object):
     
     def __init__(self):

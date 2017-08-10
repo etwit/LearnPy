@@ -8,14 +8,14 @@ Created on 2017年7月26日
 #正则表达式 和time
 import re
 #match只能从字符串起始的位置匹配
-re1 = re.match('\d+', 'adljfaldjladjflajd')
+re1 = re.match('\d+', 'adljfaldjladjflajdsddf')
 if re1:
     print re1.group()
 else:
     print re1
     
 #search搜索整个字符串内容
-re2 = re.search('\d+', 'adljfaldjladj123flajd')
+re2 = re.search('\d+', 'adljfa112ldjladj123flajd')
 if re2:
     print re2.group()
 #findall会找到所有的

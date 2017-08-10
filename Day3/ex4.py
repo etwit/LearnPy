@@ -15,9 +15,9 @@ Created on 2017年7月18日
 
 def login(username):
     if username == 'alex':
-        return '登录成功!'
+        return '登录成功'
     else:
-        return '登录失败！'
+        return '登录失败'
 
 def detail(user):
     print user,'你的详细信息！'
@@ -25,9 +25,9 @@ def detail(user):
 if __name__ == '__main__':
     user = raw_input('请输入名字:')
     res = login(user)
-    if res == '登录成功!':
+    if res == '登录成功':
         detail(user)
     else:
         print '奖金发放完了，你来晚了！'
 
-from function import test
+#from function import test

@@ -28,6 +28,5 @@ class Weixin(Alert):
     def Send(self):
         print 'send.weixin'
         
-
 f = Weixin()
 f.Send()

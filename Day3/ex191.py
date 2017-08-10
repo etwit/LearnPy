@@ -30,7 +30,7 @@ print time.gmtime()    #可加时间戳参数
 print time.localtime() #可加时间戳参数
 print time.strptime('2014-11-11', '%Y-%m-%d')
 #字符串格式
-print time.strftime('%Y-%m-%d') #默认当前时间
+print time.strftime('%Y-%m-%d %H:%M:%S') #默认当前时间
 print time.strftime('%Y-%m-%d',time.localtime()) #默认当前时间
 print time.asctime()
 print time.asctime(time.localtime())

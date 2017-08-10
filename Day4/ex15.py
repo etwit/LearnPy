@@ -27,13 +27,14 @@ class MsSqlHelper:
         pass    
 
 #对应一万个业务 的话 就要创建 n多个对象 站用内存空间
-#而静态方法的话
+#而静态方法的话 不需要占用大量内存空间
+
+ms = MsSqlHelper()
+ms.add('inster')
 ms = MsSqlHelper()
 ms.update()
 ms = MsSqlHelper()
-ms.update()
-ms = MsSqlHelper()
-ms.update()
+ms.delete()
 
 #静态方法 作用是通过不实例化类就可以调用 下面的方法
 MsSqlHelper.add()
@@ -41,3 +42,4 @@ MsSqlHelper.update()
 
 #面向对象编程 每次都要new一个方法
 #里面有 堆 栈 code segment: 静态方法 在内存code segment里
+

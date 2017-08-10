@@ -30,7 +30,7 @@ class Province:
     #私有方法
     def __sha(self):
         print '我是alex'
-    
+    #间接的访问
     def public(self):
         self.__sha()
     

@@ -53,7 +53,7 @@ class Province:
         return 'somthing'
 hb = Province('河北','石家庄','李阳')
 sd = Province('山东','济南','盛辉')
-print hb.name,hb.capital
+print hb.name,hb.capital,hb.leader
 print Province.memo
 
 hb.army_meet()
