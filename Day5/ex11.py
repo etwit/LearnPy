@@ -5,6 +5,12 @@ Created on 2017年8月14日
 
 @author: Ethan Wong
 '''
+
+'''
+三层架构之公共层
+model模型层
+utility公共层
+'''
 import MySQLdb
 
 class MySqlHelper(object):
@@ -14,7 +20,10 @@ class MySqlHelper(object):
     
     def Get_Dict(self,sql,params):
         conn = MySQLdb.connect(host='localhost',user='welltime',passwd='123456',db='welltime')
+        #获取数据的时候以字典类型拿到
         cur = conn.cursor(cursorclass = MySQLdb.cursors.DictCursor)
+        #获取数据以元组类似拿到
+        #cur = conn.cursor()
         
         reCount = cur.execute(sql,params)
         data = cur.fetchall()
@@ -34,7 +43,7 @@ class MySqlHelper(object):
         conn.close()
         return data
 
-'''    
+  
 helper = MySqlHelper()
 sql = "select * from admin where id>%s"
 params = (1,)
@@ -44,4 +53,3 @@ dict_data = helper.Get_Dict(sql, params)
 
 print simple_data
 print dict_data
-'''
