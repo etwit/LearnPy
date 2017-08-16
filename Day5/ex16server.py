@@ -30,8 +30,17 @@ class  MyServer(SocketServer.BaseRequestHandler):
 
     def handle(self):
         print self.request,self.client_address,self.server
-        #self.request = socket
-        #
+        conn = self.request
+        conn.send('hello.')
+        flag = True
+        while flag:
+            #recv(1024)是缓冲区中最多只能拿到1024字节
+            data = conn.recv(1024)
+            print data
+            if data == 'exit':
+                flag = False
+            conn.send('sb')
+        conn.close()
 
     def finish(self):
         pass
@@ -39,3 +48,4 @@ class  MyServer(SocketServer.BaseRequestHandler):
 if __name__ == '__main__':
     server = SocketServer.ThreadingTCPServer(('127.0.0.1',9999),MyServer)
     server.serve_forever()
+
