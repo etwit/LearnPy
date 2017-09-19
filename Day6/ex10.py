@@ -120,6 +120,7 @@ def process_data(threadName,q):
     while not exitFlag:
         #获得锁 每次只允许一个线程操作的数据、共享数据
         queueLock.acquire()
+        #线程优先级队列
         if not workQueue.empty():
             data = q.get()
             #释放锁
@@ -159,4 +160,5 @@ exitFlag = 1
 for t in threads:
     t.join()
 print "Exiting Main Thread"
+
 

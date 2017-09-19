@@ -27,7 +27,7 @@ print 'after'
 
 
 def Foo(arg,v):
-    for item in range(100):
+    for item in range(5):
         print item
         time.sleep(1)
         
@@ -36,11 +36,17 @@ print 'before'
 
 t1 = Thread(target=Foo,args=('dddd',11,))
 #是否为守护进程
-t1.setDaemon(True)
+#t1.setDaemon(True)
 t1.start()
+#获取线程名
 print t1.getName()
+#子线程的执行时间 只等你三秒
+t1.join(3)
 print 'after'
 print 'after end'
+
+
+
 
 
 '''t2 = Thread(target=Foo,args=('dddd',11,))

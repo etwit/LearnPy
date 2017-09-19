@@ -9,7 +9,12 @@ from threading import Thread
 from Queue import Queue
 import time
 
+
 #创建一个队列 先进先出
+#生产者与消费之间 
+#1.解耦问题，没生产完包子请等待5分钟 生产者和消费者只依赖缓冲区，而不互相依赖
+#2.支持并发和异步
+#3.支持忙闲不均
 
 class Procuder(Thread):
     
