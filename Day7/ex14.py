@@ -5,6 +5,7 @@ Created on 2017年9月25日
 
 @author: Ethan Wong
 '''
+#select socket 客户端
 #客户端在命令窗口中执行
 import socket
 import sys

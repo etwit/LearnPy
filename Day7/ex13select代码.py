@@ -5,13 +5,14 @@ Created on 2017年9月25日
 
 @author: Ethan Wong
 '''
-
+#select用例server端
 
 import select
 import socket
 import sys
 import Queue
 
+#
 server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 server.setblocking(0)
 
@@ -22,6 +23,7 @@ server.bind(server_address)
 server.listen(5)
 
 # Sockets from which we expect to read
+#如果input里面有数据
 inputs = [ server ]
  
 # Sockets to which we expect to write
@@ -39,7 +41,7 @@ while inputs:
         if s is server:
             # A "readable" server socket is ready to accept a connection
             connection, client_address = s.accept()
-            print('new connection from', client_address)
+            print >>sys.stderr, 'new connection from', client_address
             connection.setblocking(False)
             inputs.append(connection)
  
@@ -49,14 +51,14 @@ while inputs:
             data = s.recv(1024)
             if data:
                 # A readable client socket has data
-                print(sys.stderr, 'received "%s" from %s' % (data, s.getpeername()) )
+                print >>sys.stderr, 'received "%s" from %s' % (data, s.getpeername())
                 message_queues[s].put(data)
                 # Add output channel for response
                 if s not in outputs:
                     outputs.append(s)
             else:
                 # Interpret empty result as closed connection
-                print('closing', client_address, 'after reading no data')
+                print >>sys.stderr, 'closing', client_address, 'after reading no data'
                 # Stop listening for input on the connection
                 if s in outputs:
                     outputs.remove(s)  #既然客户端都断开了，我就不用再给它返回数据了，所以这时候如果这个客户端的连接对象还在outputs列表中，就把它删掉
@@ -71,14 +73,14 @@ while inputs:
             next_msg = message_queues[s].get_nowait()
         except Queue.Empty:
             # No messages waiting so stop checking for writability.
-            print('output queue for', s.getpeername(), 'is empty')
+            print >>sys.stderr, 'output queue for', s.getpeername(), 'is empty'
             outputs.remove(s)
         else:
-            print( 'sending "%s" to %s' % (next_msg, s.getpeername()))
+            print >>sys.stderr, 'sending "%s" to %s' % (next_msg, s.getpeername())
             s.send(next_msg)
     # Handle "exceptional conditions"
     for s in exceptional:
-        print('handling exceptional condition for', s.getpeername() )
+        print >>sys.stderr, 'handling exceptional condition for', s.getpeername()
         # Stop listening for input on the connection
         inputs.remove(s)
         if s in outputs:
